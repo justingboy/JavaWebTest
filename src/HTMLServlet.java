@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
+import java.util.Set;
 
 public class HTMLServlet extends HttpServlet {
 
@@ -23,6 +25,19 @@ public class HTMLServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        String str = request.getContextPath();
+        String str1 = request.getQueryString();
+        String str2 = request.getRequestURI();
+        String str3 = request.getServletPath();
+        String str4 = request.getContentType();
+        String method=request.getMethod();
+        String [] strings= request.getParameterValues("a");
+        Enumeration<String> enumeration= request.getParameterNames();
+        String  parameterNames="";
+        while (enumeration.hasMoreElements())
+        {
+            parameterNames+=enumeration.nextElement()+'、';
+        }
         String title = "使用 GET 方法读取表单数据";
         String name = request.getParameter("name");
         String url = request.getParameter("url");
@@ -34,9 +49,12 @@ public class HTMLServlet extends HttpServlet {
                 "<ul>\n" +
                 "  <li><b>站点名</b>："
                 + name + "\n" +
-                "  <li><b>网址</b>："
+                "  <li><b>网址名</b>："
                 + url+ "\n" +
+                "  <li><b>请求方法</b>："
+                + parameterNames+ "\n" +
                 "</ul>\n" +
+
                 "</body>" + "</html>");
     }
 
@@ -51,7 +69,7 @@ public class HTMLServlet extends HttpServlet {
         out.println("  <HEAD><TITLE>动态生成的HTML文档</TITLE></HEAD>");
         out.println("  <BODY>");
         out.println("    <table border='0' align='center'>");
-        out.println("            <tr><td bgcolor='skyblue'colspan=2>动态生成HTML文档 加入JRebel 34</td></tr>");
+        out.println("            <tr><td bgcolor='skyblue'colspan=2>动态生成HTML文档</td></tr>");
         out.println("     </table>");
         out.println("<h3>" + message + "</h3>");
         out.println("  </BODY>");
