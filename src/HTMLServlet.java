@@ -7,12 +7,37 @@ import java.io.PrintWriter;
 
 public class HTMLServlet extends HttpServlet {
 
+    private String message;
+
     public HTMLServlet() {
         super();
     }
 
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        message = "执行Servlet初始化方法: init()";
+
+    }
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        String title = "使用 GET 方法读取表单数据";
+        String name = request.getParameter("name");
+        String url = request.getParameter("url");
+        out.println(
+                "<html>\n" +
+                "<head><title>" + title + "</title></head>\n" +
+                "<body bgcolor=\"#f0f0f0\">\n" +
+                "<h1 align=\"center\">" + title + "</h1>\n" +
+                "<ul>\n" +
+                "  <li><b>站点名</b>："
+                + name + "\n" +
+                "  <li><b>网址</b>："
+                + url+ "\n" +
+                "</ul>\n" +
+                "</body>" + "</html>");
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,8 +51,9 @@ public class HTMLServlet extends HttpServlet {
         out.println("  <HEAD><TITLE>动态生成的HTML文档</TITLE></HEAD>");
         out.println("  <BODY>");
         out.println("    <table border='0' align='center'>");
-        out.println("            <tr><td bgcolor='skyblue'colspan=2>动态生成HTML文档</td></tr>");
+        out.println("            <tr><td bgcolor='skyblue'colspan=2>动态生成HTML文档 加入JRebel 34</td></tr>");
         out.println("     </table>");
+        out.println("<h3>" + message + "</h3>");
         out.println("  </BODY>");
         out.println("</HTML>");
         out.flush();
