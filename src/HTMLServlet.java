@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
-import java.util.Set;
 
 public class HTMLServlet extends HttpServlet {
 
@@ -31,6 +30,7 @@ public class HTMLServlet extends HttpServlet {
         String str3 = request.getServletPath();
         String str4 = request.getContentType();
         String method=request.getMethod();
+        String serverPort = request.getServerPort()+"";
         String [] strings= request.getParameterValues("a");
         Enumeration<String> enumeration= request.getParameterNames();
         String  parameterNames="";
@@ -51,8 +51,8 @@ public class HTMLServlet extends HttpServlet {
                 + name + "\n" +
                 "  <li><b>网址名</b>："
                 + url+ "\n" +
-                "  <li><b>请求方法</b>："
-                + parameterNames+ "\n" +
+                "  <li><b>请求方法</b>：serverPort="
+                + serverPort+ "\n" +
                 "</ul>\n" +
 
                 "</body>" + "</html>");

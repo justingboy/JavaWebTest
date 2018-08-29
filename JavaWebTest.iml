@@ -51,6 +51,6 @@
         <jarDirectory url="file://$MODULE_DIR$/web/lib" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.5.14" level="application_server_libraries" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.5.31" level="application_server_libraries" />
   </component>
 </module>
