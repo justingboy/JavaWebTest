@@ -94,20 +94,49 @@
         <url-pattern>/cookie</url-pattern>
     </servlet-mapping>
 
+
     <servlet>
         <!-- servlet的内部名称，自定义。尽量有意义 -->
-        <servlet-name>SessionServlet</servlet-name>
+        <servlet-name>UploadServlet</servlet-name>
         <!-- servlet的类全名： 包名+简单类名 -->
-        <servlet-class>SessionServlet</servlet-class>
+        <servlet-class>UploadServlet</servlet-class>
     </servlet>
     <!-- servlet的映射配置 -->
     <servlet-mapping>
         <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
-        <servlet-name>SessionServlet</servlet-name>
+        <servlet-name>UploadServlet</servlet-name>
         <!-- servlet的映射路径（访问servlet的名称） -->
-        <url-pattern>/session</url-pattern>
+        <url-pattern>/upload</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <!-- servlet的内部名称，自定义。尽量有意义 -->
+        <servlet-name>RefreshServlet</servlet-name>
+        <!-- servlet的类全名： 包名+简单类名 -->
+        <servlet-class>RefreshServlet</servlet-class>
+    </servlet>
+    <!-- servlet的映射配置 -->
+    <servlet-mapping>
+        <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
+        <servlet-name>RefreshServlet</servlet-name>
+        <!-- servlet的映射路径（访问servlet的名称） -->
+        <url-pattern>/refresh</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <!-- servlet的内部名称，自定义。尽量有意义 -->
+        <servlet-name>SendEmailServlet</servlet-name>
+        <!-- servlet的类全名： 包名+简单类名 -->
+        <servlet-class>SendEmailServlet</servlet-class>
+    </servlet>
+    <!-- servlet的映射配置 -->
+    <servlet-mapping>
+        <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
+        <servlet-name>SendEmailServlet</servlet-name>
+        <!-- servlet的映射路径（访问servlet的名称） -->
+        <url-pattern>/sendEmail</url-pattern>
+    </servlet-mapping>
 
 
     <!-- 欢迎页配置 -->

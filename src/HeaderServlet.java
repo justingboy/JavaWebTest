@@ -3,8 +3,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
 
 public class HeaderServlet extends HttpServlet {
 
@@ -14,7 +12,15 @@ public class HeaderServlet extends HttpServlet {
         // 设置响应内容类型
 
 //        response.sendError(404, "Need authentication!!!" );
-        response.sendRedirect("https://www.baidu.com/");
+        //1. 重定向的第一种方式：
+//        response.sendRedirect("https://www.baidu.com/");
+
+        //2. 重定向的第二种方式：
+        response.setStatus(response.SC_MOVED_PERMANENTLY);
+        response.setHeader("Location","https://github.com/Tencent/mars#mars_cn");
+
+
+
 //        response.setContentType("text/html;charset=UTF-8");
 //
 //        PrintWriter out = response.getWriter();
