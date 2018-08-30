@@ -1,3 +1,7 @@
+import bean.Person;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
 import javax.servlet.ServletOutputStream;
@@ -5,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.lang.reflect.Type;
 
 /**
  * Created by wanglin on 2018/8/30.
@@ -34,8 +39,14 @@ public class JsonServlet extends HttpServlet {
             sb.append(temp);
         }
         br.close();
-        System.out.println(sb.toString());
-
+        String body = sb.toString();
+        System.out.println(body);
+        if (!body.equals("")) {
+            Gson gson = new Gson();
+            Person person = gson.fromJson(body, Person.class);
+            System.out.println("name =" + person.getName());
+            System.out.println("age =" + person.getAge());
+        }
 
         /**
          * 返回json

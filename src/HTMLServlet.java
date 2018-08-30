@@ -23,6 +23,18 @@ public class HTMLServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String message ="京东商城计算出\n" +
+                "  实地考察你看上档次 \n" +
+                "  手机电池叫顶层\n" +
+                "  \n" +
+                "  \n" +
+                "  \n" +
+                "  第六次上档次\n" +
+                "  \n" +
+                "  是单侧开始c\n" +
+                "    \n" +
+                "\t\n" +
+                "\t斯柯达才开始";
         PrintWriter out = response.getWriter();
         String str = request.getContextPath();
         String str1 = request.getQueryString();
@@ -53,7 +65,7 @@ public class HTMLServlet extends HttpServlet {
                 + url+ "\n" +
                 "  <li><b>请求方法</b>：serverPort="
                 + serverPort+ "\n" +
-                "</ul>\n" +
+                "</ul>\n" +message+
 
                 "</body>" + "</html>");
     }
