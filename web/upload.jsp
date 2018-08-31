@@ -17,5 +17,6 @@
     <br/><br/>
     <input type="submit" value="上传" />
 </form>
+<% out.print("这是JSP脚本文件");%>
 </body>
 </html>
