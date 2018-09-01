@@ -52,7 +52,7 @@ public class JsonServlet extends HttpServlet {
          * 返回json
          */
         // 转成数据流
-        InputStream is = new ByteArrayInputStream("{\"name\":\"账单2\"}".getBytes("utf-8"));
+        InputStream is = new ByteArrayInputStream("{\"name\":\"账单4\"}".getBytes("utf-8"));
         // 输出到画面
         ServletOutputStream op = resp.getOutputStream();
         int len;
