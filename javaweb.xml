@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<patch-config>
+    <project-name>JavaWebTest</project-name>
+    <project-path>E:\IntellDE\JavaWebTest</project-path>
+    <log-path>E:\IntellDE\JavaWebTest\.git</log-path>
+    <output-path>C:\Users\justi\Desktop\patch</output-path>
+    <project-type>SINGLEMODULE</project-type>
+    <gen-type>VERSION</gen-type>
+    <version-manager-type>GIT</version-manager-type>
+    <start-version>321f637508a3eea6928ab29579d36f2d0a893496</start-version>
+    <end-version>d627aee71443262eaac727d6954476dbd375dda5</end-version>
+    <source-mappers>
+        <source-mapper>
+            <source-dir>src</source-dir>
+            <target-dir>out/artifacts/JavaWebTest_war_exploded/WEB-INF/classes</target-dir>
+            <patch-dir>/ctsi/WEB-INF/classes</patch-dir>
+        </source-mapper>
+        <source-mapper>
+            <source-dir>web</source-dir>
+            <target-dir>out/artifacts/JavaWebTest_war_exploded</target-dir>
+            <patch-dir>/ctsi</patch-dir>
+        </source-mapper>
+    </source-mappers>
+</patch-config>
