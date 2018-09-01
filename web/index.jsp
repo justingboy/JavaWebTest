@@ -12,7 +12,7 @@
 </head>
 <body>
 <form action="<%=request.getContextPath()%>/html" ethod="POST">
-    <input type="submit" value="提交">
+    <input type="submit" value="提交表单">
 </form>
 </body>
 </html>

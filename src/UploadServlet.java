@@ -95,7 +95,7 @@ public class UploadServlet extends HttpServlet {
                 }
             } catch (Exception ex) {
                 request.setAttribute("message",
-                        "错误信息: " + ex.getMessage());
+                        "错误信息提示: " + ex.getMessage());
             }
             // 跳转到 message.jsp
             request.getServletContext().getRequestDispatcher("/message.jsp").forward(
