@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+
+<html>
+<head>
+	<title>打开运维助手</title>
+	<meta name="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="./js/jquery.all.js"></script>
+
+	<script>
+        $(document).ready(function () {
+            $('#btn').click(function () {
+                var ifr = document.createElement('iframe');
+                ifr.src = 'waiqin://rizhi';
+                ifr.style.display = 'none';
+                document.body.appendChild(ifr);
+                document.body.removeChild(ifr);
+            });
+        });
+
+	</script>
+
+
+</head>
+
+<body >
+<a id="btn" href="#" style="font-size: 50px; text-align: center;" >打开运维助手</a>
+</body>
+</html>

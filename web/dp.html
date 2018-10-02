@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+<head>
+<meta charset="utf-8">
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+<style type="text/css">
+
+h1 {color:green; font-size:20px;}
+h2 {font-size: 16px; display : inline;padding: 2px;background-color: orange;color:#fff;}
+
+h3 {font-size: 16px; display : inline;padding: 2px;background-color: #0097ff;color:#fff;}
+
+h4 {font-size: 16px; display : inline;padding: 2px;background-color: #eb4c72;color:#fff;}
+p.describe{display:inline}
+p.px{display:inline; color:black; font-family:Georgia;font-weight:bold;}
+p.baseline{display:inline}
+p.realWidth{display:inline}
+input.baseline{width:44px;font-size: 16px;}
+input.realWidth{width:44px;font-size: 16px;}
+p.diver{color:green;}
+p.result{color:gray; font-size: 18px;}
+p.dp320{display:inline}
+p.dp360{display:inline}
+p.dp410{display:inline}
+p.value{display:inline; color:black; font-family:"Times New Roman", Times, Serif;font-weight:bold;}
+
+</style>
+</head>
+
+<script type="text/javascript">
+	var app = angular.module('mainModule', []);
+	app.controller('mainController', ['$scope',"calculatorService",function($scope,calculatorService) {
+        $scope.sampleWidth = 750;//如果效果图尺寸发生变化，请修改此参数
+        $scope.px;
+        $scope.dp320;
+        $scope.dp360;
+        $scope.dp410;
+        $scope.show=false;
+        $scope.$watch("sampleWidth", function(newVal) {
+        
+        if((!isNaN($scope.px)&&$scope.px!=0)&&!isNaN(newVal)){
+          $scope.show=true;
+           $scope.dp320 = calculatorService.get320dp($scope.px, newVal);
+           $scope.dp360 = calculatorService.get360dp($scope.px, newVal);
+           $scope.dp410 = calculatorService.get410dp($scope.px, newVal);
+        }else{
+          $scope.show=false;
+        }
+        });
+        $scope.$watch("px", function(newVal) {
+          if((!isNaN(newVal)&&newVal!=0)&&!isNaN($scope.sampleWidth)){
+            $scope.show=true;
+            $scope.dp320 = calculatorService.get320dp(newVal, $scope.sampleWidth);
+            $scope.dp360 = calculatorService.get360dp(newVal, $scope.sampleWidth);
+            $scope.dp410 = calculatorService.get410dp(newVal, $scope.sampleWidth);
+        }else{
+          $scope.show=false;
+        
+        }
+        });
+
+	}]);
+	
+	app.service("calculatorService", function () {
+
+	
+		this.get320dp = function (px, sample) {
+			return Math.floor(px*320/sample);
+		}
+		this.get360dp = function (px,sample) {
+			return Math.floor(px*360/sample);
+		}
+		this.get410dp = function (px, sample) {
+			return Math.floor(px*410/sample);
+		}
+	});
+
+</script>
+
+<body ng-controller="mainController">
+    <div>
+       <h1>工具说明:</h1>
+       <p class='describe'>Android在UI开发时通常使用dp作为长度单位，通常情况下主流的设备宽度度为 <h2>320dp</h2> <p class='px'>(hdpi)</p>, <h3>360dp</h3><p class='px'>(xhdpi xxhdpi)</p>, <h4>410dp</h4> <p class='px'>(xxxhdpi)</p>。</p><br/><p class='describe'>本工具主要基于iOS的效果图的完成测量计算，针对常见的 <h2>320dp</h2> 、 <h3>360dp</h3> 、 <h4>410dp</h4> 进行px到dp的转换。</p>
+	</div>
+	<br/>
+	<br/>
+	<p class='diver'>----------------------------------------------------华丽的分割线----------------------------------------------------</p>
+	<br/>
+	<br/>
+	<p class='baseline'>当前基准宽度：<input maxlength="4" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"  class='baseline' ng-model="sampleWidth" /> <p class='px'>px<p></p>
+   
+	<p class='realWidth'>测量长度：<input maxlength="4" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" class='realWidth' ng-model="px" /><p class='px'>px<p></p>
+     <br/>
+     <div ng-show='show'>
+	 <p class='result'>计算结果：</p>
+	 <p class='dp320'><h2>320dp</h2><p class='value'>&nbsp:&nbsp{{dp320}}</p></p>
+	 <p class='dp360'><h3>360dp</h3><p class='value'>&nbsp:&nbsp{{dp360}}</p></p>
+	 <p class='dp410'><h4>410dp</h4><p class='value'>&nbsp:&nbsp{{dp410}}</p></p>
+	 </div>
+</body>
+</html>
