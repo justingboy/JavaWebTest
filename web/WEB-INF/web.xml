@@ -167,6 +167,22 @@
     </servlet-mapping>
 
 
+
+    <servlet>
+        <!-- servlet的内部名称，自定义。尽量有意义 -->
+        <servlet-name>SecurityCodeServlet</servlet-name>
+        <!-- servlet的类全名： 包名+简单类名 -->
+        <servlet-class>SecurityCodeServlet</servlet-class>
+    </servlet>
+    <!-- servlet的映射配置 -->
+    <servlet-mapping>
+        <!-- servlet的内部名称，一定要和上面的内部名称保持一致！！ -->
+        <servlet-name>SecurityCodeServlet</servlet-name>
+        <!-- servlet的映射路径（访问servlet的名称） -->
+        <url-pattern>/code</url-pattern>
+    </servlet-mapping>
+
+
     <!-- 欢迎页配置 -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

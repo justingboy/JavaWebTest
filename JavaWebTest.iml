@@ -23,6 +23,7 @@
             <entry key="com.zeroturnaround.jrebel.remoting.DeleteUnindexedFiles" value="false" />
             <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerSelection" value="off" />
             <entry key="jrebelEnabled" value="true" />
+            <entry key="lastExternalPluginCheckTime" value="1540514766302" />
           </map>
         </option>
         <option name="masterModuleName" />
@@ -58,5 +59,6 @@
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.5.31" level="application_server_libraries" />
     <orderEntry type="library" name="activation" level="project" />
     <orderEntry type="library" name="gson-2.8.5" level="project" />
+    <orderEntry type="library" name="log4j-1.2.13" level="project" />
   </component>
 </module>
