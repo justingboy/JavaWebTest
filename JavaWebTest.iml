@@ -60,5 +60,7 @@
     <orderEntry type="library" name="activation" level="project" />
     <orderEntry type="library" name="gson-2.8.5" level="project" />
     <orderEntry type="library" name="log4j-1.2.13" level="project" />
+    <orderEntry type="library" name="cors-filter-2.6" level="project" />
+    <orderEntry type="library" name="java-property-utils-1.13" level="project" />
   </component>
 </module>
